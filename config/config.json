@@ -17,5 +17,14 @@
   "production": {
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
+  },
+  "ci": {
+    "username": "root",
+    "password": "root",
+    "database": "testdb",
+    "host": "127.0.0.1",
+    "socketPath": "~travis/.my.cnf",
+    "dialect": "mysql",
+    "logging": false
   }
 }
