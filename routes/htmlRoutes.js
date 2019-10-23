@@ -20,10 +20,15 @@ module.exports = function (app) {
     });
   });
 
-    // Load manager page
-    app.get("/manager", function (req, res) {
-      res.render("manager");
-    });
+  // Load manager page
+  app.get("/manager", function (req, res) {
+    res.render("manager");
+  });
+
+  // Load worker page
+  app.get("/worker", function (req, res) {
+    res.render("worker");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
