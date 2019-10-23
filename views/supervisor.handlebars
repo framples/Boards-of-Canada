@@ -1,0 +1,55 @@
+<!--bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+<head>
+    <meta charset="utf-8">
+    <!--bootstrap--> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<div id="manager">
+    <h2>Supervisor Page</h2>
+    <div class="container">
+            <div class="col-sm-8">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">Create Job</div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group row">
+                                    <label>Job Name</label>
+                                    <input class="form-control" id="jobName" type="text">
+                                    <label>Location:</label>
+                                    <input class="form-control" id="jobLocation" type="text">
+
+                                    <label>Type:</label>
+                                    <input class="form-control" id="jobType" type="input">
+
+                                    <label>Details</label>
+                                    <input class="form-control" id="jobDetails" type="input">
+
+                                    <label>Employee</label>
+                                    <input class="form-control" id="employeeAdd" type="input">
+
+                                    <button class="btn btn-blue" id="addJobButton" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">All Jobs</div>
+                        <div class="panel-body" id="containerAllJobs">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
