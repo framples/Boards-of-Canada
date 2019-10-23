@@ -20,10 +20,15 @@ module.exports = function (app) {
     });
   });
 
-    // Load manager page
-    app.get("/manager", function (req, res) {
-      res.render("manager");
-    });
+  // Load manager page
+  app.get("/manager", function (req, res) {
+    res.render("manager");
+  });
+
+  // Load worker page
+  app.get("/worker", function (req, res) {
+    res.render("worker");
+  });
 
     app.get("/supervisor", function (req, res) {
       res.render("supervisor");
