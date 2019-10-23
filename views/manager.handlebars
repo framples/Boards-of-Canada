@@ -1,0 +1,87 @@
+<!--bootstrap-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+<head>
+    <meta charset="utf-8">
+    <!--bootstrap--> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head>
+
+<div id="manager">
+    <h2>Manager Utility Page</h2>
+    <div class="container">
+        <div class="row">
+            <!-- column -->
+            <div class="col-sm-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">Add Task type</div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group row">
+                                    <label>Task Name:</label>
+                                    <input class="form-control" id="taskName" type="text">
+                                    <button class="btn btn-blue" id="addTaskButton" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- column1  Row2 start-->
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">Task List</div>
+                        <div class="panel-body" id="containerTaskList">
+                        </div>
+                    </div>
+                </div>
+                <!-- column1  Row2 end-->
+            </div>
+            <!-- end column -->
+            <!-- column2 -->
+            <div class="col-sm-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">Add Employee</div>
+                        <div class="panel-body">
+                            <form role="form">
+                                <div class="form-group row">
+                                    <label>Employee Name:</label>
+                                    <input class="form-control" id="employeeName" type="text">
+                                    <label>Employee Level:</label>
+                                    <input class="form-control" id="employeeLevel" type="text">
+                                    <label>Employee Email:</label>
+                                    <input class="form-control" id="employeeEmail" type="text">
+                                    <button class="btn btn-blue" id="addEmployeeButton" type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- column2  Row2 start-->
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">Employee List</div>
+                        <div class="panel-body" id="containerEmployeeList">
+                        </div>
+                    </div>
+                </div>
+                <!-- column2  Row2 end-->
+            </div>
+            <!-- end column2 -->
+            <!-- column3  Row1 start-->
+            <div class="col-sm-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-left">All Jobs</div>
+                        <div class="panel-body" id="containerAllJobs">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
