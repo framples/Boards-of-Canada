@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Vegetable",
-    "database": "exampledb",
+    "password": "Shinkansen1001",
+    "database": "task3000",
     "host": "localhost",
     "dialect": "mysql"
   },
