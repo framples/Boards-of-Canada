@@ -3,4 +3,4 @@ node_modules
 npm-debug.log
 .env
 package-lock.json
-config.json
+config/config.json
