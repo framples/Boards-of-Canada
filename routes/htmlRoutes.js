@@ -30,15 +30,12 @@ module.exports = function (app) {
     res.render("worker");
   });
 
-    app.get("/supervisor", function (req, res) {
-      res.render("supervisor");
-    })
+  app.get("/supervisor", function (req, res) {
+    res.render("supervisor");
+  });
 
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");
   });
-
-
-
 };
