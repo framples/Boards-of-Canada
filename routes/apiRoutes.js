@@ -27,8 +27,36 @@ module.exports = function(app) {
   // GET route for getting all of the Jobs
   app.get("/api/jobs", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Jobs.findAll({}).then(function(dbTodo) {
+    db.Jobs.findAll({}).then(function(dbJobs) {
       // We have access to the todos as an argument inside of the callback function
+      res.json(dbJobs);
+    });
+  });
+
+  // GET route for getting all of the taskstypes
+  app.get("/api/taskType", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Tasktype.findAll({}).then(function(dbTaskType) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTaskType);
+    });
+  });
+
+  // GET route for getting all of the Employee
+  app.get("/api/employee", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Employee.findAll({}).then(function(dbEmployee) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbEmployee);
+    });
+  });
+
+  // POST route for saving a new todo
+  app.post("/api/taskType/", function(req, res) {
+    db.Tasktype.create({
+      name: req.body.taskName
+    }).then(function(dbTodo) {
+      // We have access to the new todo as an argument inside of the callback function
       res.json(dbTodo);
     });
   });
