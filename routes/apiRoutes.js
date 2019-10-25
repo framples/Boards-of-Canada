@@ -17,8 +17,19 @@ module.exports = function(app) {
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
       res.json(dbExample);
+    });
+  });
+
+  // GET route for getting all of the Jobs
+  app.get("/api/jobs", function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    db.Jobs.findAll({}).then(function(dbTodo) {
+      // We have access to the todos as an argument inside of the callback function
+      res.json(dbTodo);
     });
   });
 };
