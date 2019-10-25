@@ -11,6 +11,15 @@
     {{!-- Maps api --}}
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #totalMapContainer {
+            width: 675px;
+        }
+        #containerDirections {
+            width: 650px;
+            height: 670px;
+        }
+    </style>
 
 </head>
 
@@ -78,7 +87,7 @@
             <!-- column3  Row1 start-->
             <div class="col-lg-6">
                 <div class="panel-group">
-                    <div class="panel panel-primary">
+                    <div class="panel panel-primary" id="totalMapContainer">
                         <div class="panel-heading text-left">Directions</div>
                         <script
                             src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>
@@ -92,7 +101,7 @@
                         <script>
                             mapboxgl.accessToken = 'pk.eyJ1IjoiYmVhcmRlZGJlYXV0eSIsImEiOiJjazF4dnZmb3QwYzE3M2JvaTI4cGp2NXk5In0.10JhuW_E-FyCVpTADlhjpg';
                             var map = new mapboxgl.Map({
-                                container: 'map',
+                                container: 'containerDirections',
                                 style: 'mapbox://styles/mapbox/streets-v11',
                                 center: [-79.4512, 43.6568],
                                 zoom: 13
