@@ -1,7 +1,6 @@
 var db = require("../models");
 
-module.exports = function (app) {
-  // Load index page
+module.exports = function(app) {
   app.get("/", function (req, res) {
     res.render("index", {
       msg: "TM3K"
@@ -18,21 +17,21 @@ module.exports = function (app) {
   // });
 
   // Load manager page
-  app.get("/manager", function (req, res) {
+  app.get("/manager", function(req, res) {
     res.render("manager");
   });
 
   // Load worker page
-  app.get("/worker", function (req, res) {
+  app.get("/worker", function(req, res) {
     res.render("worker");
   });
 
-  app.get("/supervisor", function (req, res) {
+  app.get("/supervisor", function(req, res) {
     res.render("supervisor");
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function (req, res) {
+  app.get("*", function(req, res) {
     res.render("404");
   });
 };
