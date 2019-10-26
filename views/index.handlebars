@@ -1,12 +1,93 @@
-<div id="home">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+{{!-- Nav bar --}}
+<nav class="nav-wrapper teal lighten-1">
+  <div class="container">
+    <a href="#" class="brand-logo">TM3K</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/">Home</a></li>
+      <li><a href="/manager">Manager</a></li>
+      <li><a href="/supervisor">Supervisor</a></li>
+      <li><a href="/worker">Worker</a></li>
+    </ul>
+  </div>
+</nav>
+
+{{!-- sub header --}}
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center teal-text text-lighten-2">Task Master 3000</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A revolutionary way to manage remote workers</h5>
+      </div>
+      {{!-- <div class="row center">
+          <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        </div> --}}
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="../public/images/pexels-photo-373076.jpeg" alt="Unsplashed background img 1"></div>
+</div>
+
+
+{{!-- description of 3 pages --}}
+
+<div class="container">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center teal-text"><i class="material-icons">business_center</i></h2>
+          <h5 class="center">Manager</h5>
+
+          <p class="light">The manager is able to create new tasks that supervisors can assign to a specific employee.
+            They're also able to see all employees within the company, and all jobs.</p>
+          <a href="/manager" class="card-link">Enter manager view</a>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center teal-text"><i class="material-icons">desktop_mac</i></h2>
+          <h5 class="center">Supervisor</h5>
+
+          <p class="light">The supervisor is able to intake new work requests, choose the correct task type and assign
+            it to a specific employee. They also have ability to see all the jobs.</p>
+          <a href="/supervisor" class="card-link">Enter supervisor view</a>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center teal-text"><i class="material-icons">build</i></h2>
+          <h5 class="center">Worker</h5>
+
+          <p class="light">The worker is able to go and see their list of jobs that have been assigned to them. They are
+            then able to get directions to a given job that they're ready to complete.</p>
+          <a href="/worker" class="card-link">Enter employee view</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+{{!-- <div id="home"> --}}
+{{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">TM3K</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> --}}
 
-    {{!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+{{!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -34,41 +115,84 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
       </form> --}}
+
+
+{{!-- </div>
+</nav> --}}
+
+
+{{!-- <div class="container">
+    <br><br><br><br>
+    <div class="row">
+      <div class="card col-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Manager</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="/manager" class="card-link">Enter manager view</a>
+        </div>
+      </div>
+      <div class="card col-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Supervisor</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="/supervisor" class="card-link">Enter supervisor view</a>
+        </div>
+      </div>
+      <div class="card col-4" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Employee</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <a href="/worker" class="card-link">Enter employee view</a>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
-<div class="container">
-  <br><br><br><br>
-  <div class="row">
-    <div class="card col-4" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Manager</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="/manager" class="card-link">Enter manager view</a>
+</div> --}}
+
+
+{{!-- footer --}}
+<footer class="page-footer teal lighten-1">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">Through a real life business need, our team came up with the idea of Task Master 3000. Through hours of brainstorming, we came up with a new way to streamline jobs for in-house employees, contractors, or remote workers.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Task Master Team</h5>
+          <ul>
+            <li><a class="white-text" href="">Peter</a></li>
+            <li><a class="white-text" href="">Ryan 2</a></li>
+            <li><a class="white-text" href="">John</a></li>
+            <li><a class="white-text" href="">Jake</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="card col-4" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Supervisor</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="/supervisor" class="card-link">Enter supervisor view</a>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
-    <div class="card col-4" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Employee</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <a href="/worker" class="card-link">Enter employee view</a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+  </footer>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/index.js"></script>
