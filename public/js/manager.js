@@ -1,15 +1,24 @@
 $(document).ready(function() {
   // Getting a reference to the input field where user adds a new task
   var $newTaskNameInput = $("#taskName");
-  // Our new todos will go inside the containerTaskList
+  // Our new taskType will go inside the containerTaskList
   var $containerTaskList = $("#containerTaskList");
+
+  // Our new Jobs will go inside the containerTaskList
+  var $containerTaskListJobs = $("#containerAllJobs");
+
+  // Our new employee will go inside the containerTaskList
+  var $containerEmployee = $("#containerEmployeeList");
+
   // button click
-  $(document).on("click", "addTaskButton", insertTodo);
+  $(document).on("click", "#addTaskButton", insertTask);
 
-  // Our initial todos array
+  // Our initial tasktype and jobs array
   var taskType = [];
+  var jobs = [];
+  var employee = [];
 
-  // Getting todos from database when page loads
+  // Getting tasks from database when page loads
   getTaskType();
 
   // This function resets the todos displayed with new todos from the database
@@ -34,27 +43,101 @@ $(document).ready(function() {
   function createNewRow(taskType) {
     var $newInputRow = $(
       [
-        "<li class='list-group-item todo-item'>",
+        "<li>",
         "<span>",
-        taskType.text,
+        "id:" + taskType.id + "    ",
+        "task name: " + taskType.name,
         "</span>",
-        "<input type='text' class='edit' style='display: none;'>",
-        "<button class='delete btn btn-danger'>x</button>",
-        "<button class='complete btn btn-primary'>✓</button>",
+        "<br></br>",
         "</li>"
       ].join("")
     );
     return $newInputRow;
   }
 
-  // This function inserts a new todo into our database and then updates the view
-  function insertTodo(event) {
+  // This function inserts a new task into our database and then updates the view
+  function insertTask(event) {
     event.preventDefault();
     var taskType = {
       name: $newTaskNameInput.val().trim()
     };
-
     $.post("/api/taskType", taskType, getTaskType);
     $newTaskNameInput.val("");
+  }
+
+  // get jobs and output data
+  // Getting tasks from database when page loads
+  getJobs();
+
+  // This function resets the todos displayed with new todos from the database
+  function initializeRowsJobs() {
+    $containerTaskListJobs.empty();
+    var rowsToAdd = [];
+    for (var i = 0; i < jobs.length; i++) {
+      rowsToAdd.push(createNewRowJobs(jobs[i]));
+    }
+    $containerTaskListJobs.prepend(rowsToAdd);
+  }
+
+  // This function grabs todos from the database and updates the view
+  function getJobs() {
+    $.get("/api/jobs", function(data) {
+      jobs = data;
+      initializeRowsJobs();
+    });
+  }
+
+  // This function constructs a todo-item row
+  function createNewRowJobs(jobs) {
+    var $newInputRow = $(
+      [
+        "<li>",
+        "<span>",
+        "id:" + jobs.id + "    ",
+        "task name: " + jobs.name,
+        "</span>",
+        "<br></br>",
+        "</li>"
+      ].join("")
+    );
+    return $newInputRow;
+  }
+
+  // get employees and output data
+
+  getEmployee();
+
+  // This function resets the todos displayed with new todos from the database
+  function initializeRowsEmployee() {
+    $containerEmployee.empty();
+    var rowsToAdd = [];
+    for (var i = 0; i < employee.length; i++) {
+      rowsToAdd.push(createNewRowEmployee(employee[i]));
+    }
+    $containerEmployee.prepend(rowsToAdd);
+  }
+
+  // This function grabs todos from the database and updates the view
+  function getEmployee() {
+    $.get("/api/employee", function(data) {
+      employee = data;
+      initializeRowsEmployee();
+    });
+  }
+
+  // This function constructs a todo-item row
+  function createNewRowEmployee(employee) {
+    var $newInputRow = $(
+      [
+        "<li>",
+        "<span>",
+        "id:" + employee.id + "    ",
+        "task name: " + employee.name,
+        "</span>",
+        "<br></br>",
+        "</li>"
+      ].join("")
+    );
+    return $newInputRow;
   }
 });
