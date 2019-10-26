@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Tasktype = sequelize.define(
+  var TaskType = sequelize.define(
     "Tasktype",
     {
       name: {
@@ -11,5 +11,5 @@ module.exports = function(sequelize, DataTypes) {
       freezeTableName: true
     }
   );
-  return Tasktype;
+  return TaskType;
 };
