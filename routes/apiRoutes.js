@@ -26,6 +26,7 @@ module.exports = function(app) {
 
   // GET route for getting all of the Jobs
   app.get("/api/jobs", function(req, res) {
+    
     // findAll returns all entries for a table when used with no options
     db.Jobs.findAll({}).then(function(dbJobs) {
       // We have access to the todos as an argument inside of the callback function
