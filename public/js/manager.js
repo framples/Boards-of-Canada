@@ -1,4 +1,9 @@
 $(document).ready(function() {
+  // employee input fields
+  var $newEmployeeNameInput = $("#employeeName");
+  var $newemployeeLevelInput = $("#employeeLevel");
+  var $newemployeeEmailInput = $("#employeeEmail");
+
   // Getting a reference to the input field where user adds a new task
   var $newTaskNameInput = $("#taskName");
   // Our new taskType will go inside the containerTaskList
@@ -12,6 +17,7 @@ $(document).ready(function() {
 
   // button click
   $(document).on("click", "#addTaskButton", insertTask);
+  $(document).on("click", "#addEmployeeButton", insertEmployee);
 
   // Our initial tasktype and jobs array
   var taskType = [];
@@ -139,5 +145,19 @@ $(document).ready(function() {
       ].join("")
     );
     return $newInputRow;
+  }
+
+  // This function inserts a new employee into our database and then updates the view
+  function insertEmployee(event) {
+    event.preventDefault();
+    var employee = {
+      name: $newEmployeeNameInput.val().trim(),
+      level: parseInt($newemployeeLevelInput.val().trim()),
+      email: $newemployeeEmailInput.val().trim()
+    };
+    $.post("/api/employee", employee, getEmployee);
+    $newEmployeeNameInput.val("");
+    $newemployeeLevelInput.val("");
+    $newemployeeEmailInput.val("");
   }
 });
