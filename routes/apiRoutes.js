@@ -51,6 +51,19 @@ module.exports = function(app) {
     });
   });
 
+  // POST route for saving a new employee
+  app.post("/api/employee/", function(req, res) {
+    console.log(req.body);
+    db.Employee.create({
+      name: req.body.name,
+      level: req.body.level,
+      email: req.body.email
+    }).then(function(dbEmployee) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbEmployee);
+    });
+  });
+
   // POST route for saving a new todo
   app.post("/api/taskType/", function(req, res) {
     console.log(req.body);
@@ -59,6 +72,21 @@ module.exports = function(app) {
     }).then(function(dbTodo) {
       // We have access to the new todo as an argument inside of the callback function
       res.json(dbTodo);
+    });
+  });
+
+  // POST route for saving a new jobs
+  app.post("/api/jobs/", function(req, res) {
+    console.log(req.body);
+    db.Jobs.create({
+      name: req.body.name,
+      location: req.body.location,
+      tasktype: req.body.tasktype,
+      employee_id: req.body.employee_id,
+      job_desc: req.body.job_desc
+    }).then(function(dbJobs) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbJobs);
     });
   });
 };
