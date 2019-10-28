@@ -1,19 +1,75 @@
 $(document).ready(function() {
-  // Job input fields
-  var $newJobNameInput = $("#jobName");
-  var $newJobLocationInput = $("#jobLocation");
-  var $newJobTypeInput = $("#jobType");
-  var $newJobDetailsInput = $("#jobDetails");
-  var $newEmployeeAddInput = $("#employeeAdd");
+  // employee input fields
+  var $newEmployeeNameInput = $("#employeeName");
+  var $newemployeeLevelInput = $("#employeeLevel");
+  var $newemployeeEmailInput = $("#employeeEmail");
+
+  // Getting a reference to the input field where user adds a new task
+  var $newTaskNameInput = $("#taskName");
+  // Our new taskType will go inside the containerTaskList
+  var $containerTaskList = $("#containerTaskList");
 
   // Our new Jobs will go inside the containerTaskList
   var $containerTaskListJobs = $("#containerAllJobs");
 
+  // Our new employee will go inside the containerTaskList
+  var $containerEmployee = $("#containerEmployeeList");
+
   // button click
-  $(document).on("click", "#addJobButton", insertJob);
+  $(document).on("click", "#addTaskButton", insertTask);
+  $(document).on("click", "#addEmployeeButton", insertEmployee);
 
   // Our initial tasktype and jobs array
+  var taskType = [];
   var jobs = [];
+  var employee = [];
+
+  // Getting tasks from database when page loads
+  getTaskType();
+
+  // This function resets the todos displayed with new todos from the database
+  function initializeRows() {
+    $containerTaskList.empty();
+    var rowsToAdd = [];
+    for (var i = 0; i < taskType.length; i++) {
+      rowsToAdd.push(createNewRow(taskType[i]));
+    }
+    $containerTaskList.prepend(rowsToAdd);
+  }
+
+  // This function grabs todos from the database and updates the view
+  function getTaskType() {
+    $.get("/api/taskType", function(data) {
+      taskType = data;
+      initializeRows();
+    });
+  }
+
+  // This function constructs a todo-item row
+  function createNewRow(taskType) {
+    var $newInputRow = $(
+      [
+        "<li>",
+        "<span>",
+        "id:" + taskType.id + "    ",
+        "task name: " + taskType.name,
+        "</span>",
+        "<br></br>",
+        "</li>"
+      ].join("")
+    );
+    return $newInputRow;
+  }
+
+  // This function inserts a new task into our database and then updates the view
+  function insertTask(event) {
+    event.preventDefault();
+    var taskType = {
+      name: $newTaskNameInput.val().trim()
+    };
+    $.post("/api/taskType", taskType, getTaskType);
+    $newTaskNameInput.val("");
+  }
 
   // get jobs and output data
   // Getting tasks from database when page loads
@@ -53,21 +109,55 @@ $(document).ready(function() {
     return $newInputRow;
   }
 
+  // get employees and output data
+
+  getEmployee();
+
+  // This function resets the todos displayed with new todos from the database
+  function initializeRowsEmployee() {
+    $containerEmployee.empty();
+    var rowsToAdd = [];
+    for (var i = 0; i < employee.length; i++) {
+      rowsToAdd.push(createNewRowEmployee(employee[i]));
+    }
+    $containerEmployee.prepend(rowsToAdd);
+  }
+
+  // This function grabs todos from the database and updates the view
+  function getEmployee() {
+    $.get("/api/employee", function(data) {
+      employee = data;
+      initializeRowsEmployee();
+    });
+  }
+
+  // This function constructs a todo-item row
+  function createNewRowEmployee(employee) {
+    var $newInputRow = $(
+      [
+        "<li>",
+        "<span>",
+        "id:" + employee.id + "    ",
+        "task name: " + employee.name,
+        "</span>",
+        "<br></br>",
+        "</li>"
+      ].join("")
+    );
+    return $newInputRow;
+  }
+
   // This function inserts a new employee into our database and then updates the view
-  function insertJob(event) {
+  function insertEmployee(event) {
     event.preventDefault();
-    var Job = {
-      name: $newJobNameInput.val().trim(),
-      location: $newJobLocationInput.val().trim(),
-      tasktype: $newJobTypeInput.val().trim(),
-      employee_id: $newEmployeeAddInput.val().trim(),
-      job_desc: $newJobDetailsInput.val().trim()
+    var employee = {
+      name: $newEmployeeNameInput.val().trim(),
+      level: parseInt($newemployeeLevelInput.val().trim()),
+      email: $newemployeeEmailInput.val().trim()
     };
-    $.post("/api/jobs/", Job, getJobs);
-    $newJobNameInput.val("");
-    $newJobLocationInput.val("");
-    $newEmployeeAddInput.val("");
-    $newJobDetailsInput.val("");
-    $newJobLocationInput.val("");
+    $.post("/api/employee", employee, getEmployee);
+    $newEmployeeNameInput.val("");
+    $newemployeeLevelInput.val("");
+    $newemployeeEmailInput.val("");
   }
 });
