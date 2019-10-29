@@ -89,4 +89,23 @@ module.exports = function(app) {
       res.json(dbJobs);
     });
   });
+
+  // PUT route for updating todos. We can get the updated todo data from req.body
+  app.put("/api/jobs/", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Todo.update(
+      {
+        text: req.body.text,
+        complete: req.body.complete
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(function(dbTodo) {
+      res.json(dbTodo);
+    });
+  });
 };

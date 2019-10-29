@@ -9,6 +9,15 @@ $(document).ready(function() {
   // Getting tasks from database when page loads
   getJobs();
 
+  $(document).on("click", ".complete", getComplete);
+
+  function getComplete() {
+    $.get("/api/jobs", function(data) {
+      jobs = data;
+      initializeRowsJobs();
+    });
+  }
+
   // This function resets the todos displayed with new todos from the database
   function initializeRowsJobs() {
     $containerTaskListJobs.empty();
@@ -27,7 +36,7 @@ $(document).ready(function() {
     });
   }
 
-  // This function constructs a todo-item row
+  // This function constructs a jobs row
   function createNewRowJobs(jobs) {
     var $newInputRow = $(
       [
@@ -36,6 +45,11 @@ $(document).ready(function() {
         "<td>" + jobs.location + "</td>",
         "<td>" + jobs.job_desc + "</td>",
         "<td>" + jobs.job_status + "</td>",
+        "<td><button class='complete btn btn-primary' data =" +
+          jobs.job_status +
+          " data2 =" +
+          jobs.id +
+          ">✓</button></td>",
         "</tr>"
       ].join("")
     );
