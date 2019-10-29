@@ -51,3 +51,48 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+.card {
+  border-width: 5px;
+  border-color: lightgray;
+  padding: 20px;
+}
+
+.card-content {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+h2 {
+  color: grey;
+}
+
+label {
+  font-size: large;
+  color: black;
+}
+
+#totalMapContainer {
+  width: 590px;
+}
+
+#containerDirections {
+  width: 550px;
+  height: 670px;
+}
+
+#workerContainer {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+@media only screen and (min-width: 601px) {
+  #workerContainer {
+    width: 85%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  #workerContainer {
+    width: 70%;
+  }
+}
