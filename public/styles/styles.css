@@ -73,11 +73,11 @@ label {
 }
 
 #totalMapContainer {
-  width: 590px;
+  width: 950px;
 }
 
 #containerDirections {
-  width: 550px;
+  width: 890px;
   height: 670px;
 }
 
@@ -95,4 +95,14 @@ label {
   #workerContainer {
     width: 70%;
   }
+}
+
+#allJobsCard {
+  width: 500px;
+}
+
+#managerContainer {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
 }
