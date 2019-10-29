@@ -77,7 +77,6 @@ module.exports = function(app) {
 
   // POST route for saving a new jobs
   app.post("/api/jobs/", function(req, res) {
-    console.log(req.body);
     db.Jobs.create({
       name: req.body.name,
       location: req.body.location,
@@ -92,12 +91,12 @@ module.exports = function(app) {
 
   // PUT route for updating todos. We can get the updated todo data from req.body
   app.put("/api/jobs/", function(req, res) {
+    console.log(req.body);
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Todo.update(
+    db.Jobs.update(
       {
-        text: req.body.text,
-        complete: req.body.complete
+        job_status: req.body.job_status
       },
       {
         where: {

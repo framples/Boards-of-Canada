@@ -9,16 +9,36 @@ $(document).ready(function() {
   // Getting tasks from database when page loads
   getJobs();
 
-  $(document).on("click", ".complete", getComplete);
+  $(document).on("click", ".complete", toggleComplete);
 
-  function getComplete() {
-    $.get("/api/jobs", function(data) {
-      jobs = data;
-      initializeRowsJobs();
-    });
+  // Toggles complete status
+  function toggleComplete(event) {
+    event.stopPropagation();
+    var job;
+    if ($(this).attr("data") == 0) {
+      job = {
+        job_status: 1,
+        id: $(this).attr("data2")
+      };
+    } else {
+      job = {
+        job_status: 0,
+        id: $(this).attr("data2")
+      };
+    }
+    updateJob(job);
   }
 
-  // This function resets the todos displayed with new todos from the database
+  // This function updates a todo in our database
+  function updateJob(job) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/jobs",
+      data: job
+    }).then(getJobs);
+  }
+
+  // This function resets the todos displayed with new Jobs from the database
   function initializeRowsJobs() {
     $containerTaskListJobs.empty();
     var rowsToAdd = [];
@@ -54,6 +74,7 @@ $(document).ready(function() {
         "</tr>"
       ].join("")
     );
+
     return $newInputRow;
   }
 });
