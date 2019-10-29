@@ -108,4 +108,31 @@ module.exports = function(app) {
       res.json(dbTodo);
     });
   });
+  app.get("/api/send", function(req, res) {
+    var mailOptions = {
+      to: req.query.to,
+      subject: req.query.subject,
+      text: req.query.text
+    };
+    console.log(mailOptions);
+    var nodemailer = require("nodemailer");
+    var smtpTransport = nodemailer.createTransport({
+      service: "gmail",
+      host: "smtp.gmail.com",
+      auth: {
+        user: "manager.taskmaster3000@gmail.com",
+        pass: "Manager3k!"
+      }
+    });
+
+    smtpTransport.sendMail(mailOptions, function(error, response) {
+      if (error) {
+        console.log(error);
+        res.end("error");
+      } else {
+        console.log("Message sent: " + response.message);
+        res.end("sent");
+      }
+    });
+  });
 };

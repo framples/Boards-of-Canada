@@ -12,6 +12,16 @@ $(document).ready(function() {
   // button click
   $(document).on("click", "#addJobButton", insertJob);
 
+  // button click to send email
+  $("#addJobButton").click(function() {
+    var to, subject, text;
+    to = "worker.taskmaster3000@gmail.com";
+    subject = "You have been assigned a new Job";
+    text =
+      "You have been assigned a new Job.  Please login to your TM3K account to view Job details.";
+    $.get("/api/send", { to: to, subject: subject, text: text });
+  });
+
   // Our initial tasktype and jobs array
   var jobs = [];
 
