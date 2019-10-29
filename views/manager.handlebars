@@ -1,101 +1,181 @@
 <!--bootstrap-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+{{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> --}}
 
 
 <head>
     <meta charset="utf-8">
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-      <title>Manager Page</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Manager Page</title>
 </head>
-<nav class="nav-wrapper teal lighten-1">
-  <div class="container">
-    <a href="#" class="brand-logo">TM3K</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/">Home</a></li>
-      <li><a href="/manager">Manager</a></li>
-      <li><a href="/supervisor">Supervisor</a></li>
-      <li><a href="/worker">Worker</a></li>
-    </ul>
-  </div>
-</nav>
 
-<div id="manager">
-    <h2>Manager Utility Page</h2>
+{{!-- Nav bar --}}
+<nav class="nav-wrapper teal lighten-1">
     <div class="container">
-        <div class="row">
-            <!-- column -->
-            <div class="col-sm-4">
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-left">Add Task type</div>
-                        <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group row">
-                                    <label>Task Name:</label>
-                                    <input class="form-control" id="taskName" type="text">
-                                    <button class="btn btn-blue" id="addTaskButton" type="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <a href="#" class="brand-logo">TM3K</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/manager">Manager</a></li>
+            <li><a href="/supervisor">Supervisor</a></li>
+            <li><a href="/worker">Worker</a></li>
+        </ul>
+    </div>
+</nav>
+{{!-- End Nav bar --}}
+
+
+
+{{!-- page container --}}
+<div class="container">
+    <h2>Manager Utility Page</h2>
+
+    <div class="row">
+
+        <!-- column 1  -->
+        <div class="col s12 m4 l4">
+
+            {{!-- ADD TASK TYPE  --}}
+            <div class="card darken-1">
+                <div class="card-content teal-text">
+                    <span class="card-title">Add Task Type</span>
                 </div>
-                <!-- column1  Row2 start-->
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-left">Task List</div>
-                        <div class="panel-body" id="containerTaskList">
-                        </div>
+                <form>
+                    <div class="input-field">
+                        <input class="form-control validate" placeholder="Set up desktop" id="taskName" type="text">
+                        <label class="specialText" for="taskName">Task Name</label>
                     </div>
+                </form>
+                <div class="card-action center-align">
+                    <button class="btn btn-blue" id="addTaskButton" type="submit">Submit</button>
+
                 </div>
-                <!-- column1  Row2 end-->
+
             </div>
-            <!-- end column -->
-            <!-- column2 -->
-            <div class="col-sm-4">
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-left">Add Employee</div>
-                        <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group row">
-                                    <label>Employee Name:</label>
-                                    <input class="form-control" id="employeeName" type="text">
-                                    <label>Employee Level:</label>
-                                    <input class="form-control" id="employeeLevel" type="text">
-                                    <label>Employee Email:</label>
-                                    <input class="form-control" id="employeeEmail" type="text">
-                                    <button class="btn btn-blue" id="addEmployeeButton" type="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+            {{!-- END - ADD TASK TYPE --}}
+
+
+            <!--  TASK LIST TABLE-->
+            <div class="card darken-1">
+                <div class="card-content teal-text">
+                    <span class="card-title">Task List</span>
                 </div>
-                <!-- column2  Row2 start-->
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-left">Employee List</div>
-                        <div class="panel-body" id="containerEmployeeList">
-                        </div>
-                    </div>
-                </div>
-                <!-- column2  Row2 end-->
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Task ID</th>
+                            <th>Task Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="containerTaskList">
+                    </tbody>
+                </table>
             </div>
-            <!-- end column2 -->
-            <!-- column3  Row1 start-->
-            <div class="col-sm-4">
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-left">All Jobs</div>
-                        <div class="panel-body" id="containerAllJobs">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Custom Script -->
-            <script src="/js/manager.js" type="text/javascript"></script>
+            <!--  TASK LIST TABLE-->
+
         </div>
+        <!-- end column 1 -->
+
+
+
+        <!-- column2 -->
+        <div class="col s12 m4 l4">
+
+            {{!-- ADD EMPLOYEE --}}
+            <div class="card darken-1">
+                <div class="card-content teal-text">
+                    <span class="card-title">Add Employee</span>
+                </div>
+                <form>
+                    <div class="input-field">
+                        <input class="form-control validate" placeholder="John Doe" id="employeeName" type="text">
+                        <label for="employeeName">Employee Name:</label>
+                    </div>
+                    <div class="input-field">
+                        <input class="form-control validate" placeholder="2" id="employeeLevel" type="text">
+                        <label for="employeeLevel">Employee Level:</label>
+                    </div>
+                    <div class="input-field">
+                        <input class="form-control validate" placeholder="john.doe@tm3k@gmail.com" id="employeeEmail"
+                            type="text">
+                        <label for="employeeEmail">Employee Email:</label>
+                    </div>
+                </form>
+                <div class="card-action center-align">
+                    <button class="btn btn-blue" id="addTaskButton" type="submit">Submit</button>
+                </div>
+
+            </div>
+            {{!-- end ADD EMPLOYEE --}}
+
+
+            <!--  EMPLOYEE LIST -->
+            <div class="card darken-1">
+                <div class="card-content teal-text">
+                    <span class="card-title">Employee List</span>
+                </div>
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Employee Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="containerEmployeeList">
+                    </tbody>
+                </table>
+            </div>
+            <!-- end EMPLOYEE LIST-->
+
+        </div>
+        <!-- end column2 -->
+
+
+
+
+    {{!-- Column 3 --}}
+        <div class="col s12 m4 l4">
+
+        <!--  ALL JOBS-->
+            <div class="card darken-1">
+                <div class="card-content teal-text">
+                    <span class="card-title">All Jobs</span>
+                </div>
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Job ID</th>
+                            <th>Task Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="containerAllJobs">
+                    </tbody>
+                </table>
+            </div>
+            {{!-- end ALL JOBS --}}
+
+        </div>
+        {{!-- end Column 3 --}}
+
     </div>
 </div>
+{{!-- end Page container --}}
+
+<!-- col 3 ends ALL JOBS -->
+
+<!-- Custom Script -->
+<script src="/js/manager.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/index.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+
+            $('.sidenav').sidenav();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+</script>
