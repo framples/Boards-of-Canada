@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "Password10",
-    "database": "task3000",
-    "host": "localhost",
+    "username": "ih9g0ovw48id2g0f",
+    "password": "s4cmy6pa0x0g0gyi",
+    "database": "vj25v2f7pt1omr3v",
+    "host": "o61qijqeuqnj9chh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
