@@ -28,7 +28,7 @@
     <h2>Worker Utility Page</h2>
     <div class="row">
         <!-- column 1  -->
-        <div class="col s12 m6 l6">
+        <div class="col s12">
             <!--  ALL JOBS-->
             <div class="card darken-1">
                 <div class="card-content teal-text">
@@ -48,15 +48,15 @@
                 </table>
             </div>
             {{!-- end ALL JOBS --}}
-
         </div>
+    </div>
 
-        {{!-- END COLUMN 1 --}}
+    {{!-- END COLUMN 1 --}}
 
 
-
+    <div class="row">
         {{!-- Column 2 --}}
-        <div class="col s12 m6 l6">
+        <div class="col s12">
             <div class="card darken-1" id="totalMapContainer">
                 <div class="card-content teal-text">
                     <span class="card-title">Directions</span>
@@ -85,13 +85,9 @@
                     $(ajax)
                     "https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYmVhcmRlZGJlYXV0eSIsImEiOiJjazF4dnZmb3QwYzE3M2JvaTI4cGp2NXk5In0.10JhuW_E-FyCVpTADlhjpg"
                 </script>
-
-
-
             </div>
         </div>
         {{!-- end Column 2 --}}
-
     </div>
 </div>
 {{!-- END PAGE CONTAINER --}}
@@ -104,12 +100,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/index.js"></script>
 <script>
-    (function ($) {
-        $(function () {
+        (function ($) {
+            $(function () {
 
-            $('.sidenav').sidenav();
+                $('.sidenav').sidenav();
 
-        }); // end of document ready
-    })(jQuery); // end of jQuery name space
+            }); // end of document ready
+        })(jQuery); // end of jQuery name space
 </script>
-

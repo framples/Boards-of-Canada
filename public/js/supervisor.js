@@ -41,13 +41,10 @@ $(document).ready(function() {
   function createNewRowJobs(jobs) {
     var $newInputRow = $(
       [
-        "<li>",
-        "<span>",
-        "id:" + jobs.id + "    ",
-        "task name: " + jobs.name,
-        "</span>",
-        "<br></br>",
-        "</li>"
+        "<tr>",
+        "<td>" + jobs.id + "</td>",
+        "<td>" + jobs.name + "</td>",
+        "</td>"
       ].join("")
     );
     return $newInputRow;
