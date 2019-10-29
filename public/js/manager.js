@@ -49,13 +49,10 @@ $(document).ready(function() {
   function createNewRow(taskType) {
     var $newInputRow = $(
       [
-        "<li>",
-        "<span>",
-        "id:" + taskType.id + "    ",
-        "task name: " + taskType.name,
-        "</span>",
-        "<br></br>",
-        "</li>"
+        "<tr>",
+        "<td>" + taskType.id + "</td>",
+        "<td>" + taskType.name + "</td>",
+        "</tr>"
       ].join("")
     );
     return $newInputRow;
@@ -97,13 +94,12 @@ $(document).ready(function() {
   function createNewRowJobs(jobs) {
     var $newInputRow = $(
       [
-        "<li>",
-        "<span>",
-        "id:" + jobs.id + "    ",
-        "task name: " + jobs.name,
-        "</span>",
-        "<br></br>",
-        "</li>"
+        "<tr>",
+        "<td>" + jobs.id + "</td>",
+        "<td>" + jobs.location + "</td>",
+        "<td>" + jobs.job_desc + "</td>",
+        "<td>" + jobs.job_status + "</td>",
+        "</tr>"
       ].join("")
     );
     return $newInputRow;
@@ -135,13 +131,10 @@ $(document).ready(function() {
   function createNewRowEmployee(employee) {
     var $newInputRow = $(
       [
-        "<li>",
-        "<span>",
-        "id:" + employee.id + "    ",
-        "task name: " + employee.name,
-        "</span>",
-        "<br></br>",
-        "</li>"
+        "<tr>",
+        "<td>" + employee.id + "</td>",
+        "<td>" + employee.name + "</td>",
+        "</tr>"
       ].join("")
     );
     return $newInputRow;
