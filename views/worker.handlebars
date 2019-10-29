@@ -1,121 +1,115 @@
-<!--bootstrap-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-
 <head>
     <meta charset="utf-8">
-    <!--bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Worker Page</title>
     {{!-- Maps api --}}
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
-    <style>
-        #totalMapContainer {
-            width: 675px;
-        }
-        #containerDirections {
-            width: 650px;
-            height: 670px;
-        }
-    </style>
-
 </head>
 
-
-<div id="worker">
-    <h2>Jobs Status</h2>
+{{!-- Nav bar --}}
+<nav class="nav-wrapper teal lighten-1">
     <div class="container">
-        <div class="row">
-            <!-- column -->
-            <div class="col-lg-6">
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading text-left">Job Status</div>
-                        <div class="panel-body">
-                            <form role="form">
-                                <div class="form-group row">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Dropdown button
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">Worker 1</a>
-                                            <a class="dropdown-item" href="#">Worker 2</a>
-                                            <a class="dropdown-item" href="#">Worker 3</a>
-                                        </div>
+        <a href="#" class="brand-logo">TM3K</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/">Home</a></li>
+            <li><a href="/manager">Manager</a></li>
+            <li><a href="/supervisor">Supervisor</a></li>
+            <li><a href="/worker">Worker</a></li>
+        </ul>
+    </div>
+</nav>
+{{!-- End Nav bar --}}
 
-                                        <div class="card-mb-4" style="border: solid black 1px; background-color: grey">
-                                            <div class="card-header">Current Train Schedule</div>
-                                            <div class="card-body">
-                                                <table class="table table-sm table-hover" id="employee-table">
-                                                    <thread>
-                                                        <tr>
-                                                            <th scope="col">Employee ID</th>
-                                                            <th scope="col">Employee Level</th>
-                                                            <th scope="col">Employee Name</th>
-                                                            <th scope="col">Employee Email</th>
-                                                            <th scope="col">Employee Job</th>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="col">22</th>
-                                                            <th scope="col">3</th>
-                                                            <th scope="col">Joe</th>
-                                                            <th scope="col">joe@3000.com</th>
-                                                            <th scope="col">Entry level cog in the machine</th>
-                                                        </tr>
 
-                                                    </thread>
-                                                    <tbody>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+{{!-- page container --}}
+<div class="container" id="workerContainer">
+    <h2>Worker Utility Page</h2>
+    <div class="row">
+        <!-- column 1  -->
+        <div class="col s12 m6 l6">
+            <!--  ALL JOBS-->
+            <div class="card darken-1">
+                <div class="card-content teal-text">
+                    <span class="card-title">Your Jobs</span>
                 </div>
+                <table class="striped centered">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Employee Level</th>
+                            <th>Employee Email</th>
+                            <th>Employee Job</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employee-table">
+                    </tbody>
+                </table>
             </div>
-            <!-- end column -->
-
-            <!-- column3  Row1 start-->
-            <div class="col-lg-6">
-                <div class="panel-group">
-                    <div class="panel panel-primary" id="totalMapContainer">
-                        <div class="panel-heading text-left">Directions</div>
-                        <script
-                            src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>
-                        <link rel='stylesheet'
-                            href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css'
-                            type='text/css' />
-                        <div class="panel-body" id="containerDirections">
-                        </div>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                        
-                        <script>
-                            mapboxgl.accessToken = 'pk.eyJ1IjoiYmVhcmRlZGJlYXV0eSIsImEiOiJjazF4dnZmb3QwYzE3M2JvaTI4cGp2NXk5In0.10JhuW_E-FyCVpTADlhjpg';
-                            var map = new mapboxgl.Map({
-                                container: 'containerDirections',
-                                style: 'mapbox://styles/mapbox/streets-v11',
-                                center: [-79.4512, 43.6568],
-                                zoom: 13
-                            });
-                            map.addControl(new MapboxDirections({
-                                accessToken: mapboxgl.accessToken
-                            }), 'top-left');
-
-                            $(ajax)
-                            "https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYmVhcmRlZGJlYXV0eSIsImEiOiJjazF4dnZmb3QwYzE3M2JvaTI4cGp2NXk5In0.10JhuW_E-FyCVpTADlhjpg"
-                        </script>
-                    </div>
-                </div>
-            </div>
-
+            {{!-- end ALL JOBS --}}
 
         </div>
+
+        {{!-- END COLUMN 1 --}}
+
+
+
+        {{!-- Column 2 --}}
+        <div class="col s12 m6 l6">
+            <div class="card darken-1" id="totalMapContainer">
+                <div class="card-content teal-text">
+                    <span class="card-title">Directions</span>
+                </div>
+                <script
+                    src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js'></script>
+                <link rel='stylesheet'
+                    href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css'
+                    type='text/css' />
+                <div class="" id="containerDirections">
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+                <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoiYmVhcmRlZGJlYXV0eSIsImEiOiJjazF4dnZmb3QwYzE3M2JvaTI4cGp2NXk5In0.10JhuW_E-FyCVpTADlhjpg';
+                    var map = new mapboxgl.Map({
+                        container: 'containerDirections',
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                        center: [-79.4512, 43.6568],
+                        zoom: 13
+                    });
+                    map.addControl(new MapboxDirections({
+                        accessToken: mapboxgl.accessToken
+                    }), 'top-left');
+
+                    $(ajax)
+                    "https://api.mapbox.com/directions/v5/mapbox/cycling/-122.42,37.78;-77.03,38.91?access_token=pk.eyJ1IjoiYmVhcmRlZGJlYXV0eSIsImEiOiJjazF4dnZmb3QwYzE3M2JvaTI4cGp2NXk5In0.10JhuW_E-FyCVpTADlhjpg"
+                </script>
+
+
+
+            </div>
+        </div>
+        {{!-- end Column 2 --}}
+
+    </div>
+</div>
+{{!-- END PAGE CONTAINER --}}
+
+<!-- Custom Script -->
+
+{{!-- connect worker.js --}}
+{{!-- <script src="#" type="text/javascript"></script> --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/index.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+
+            $('.sidenav').sidenav();
+
+        }); // end of document ready
+    })(jQuery); // end of jQuery name space
+</script>
+
