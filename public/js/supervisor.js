@@ -52,9 +52,11 @@ $(document).ready(function() {
     var $newInputRow = $(
       [
         "<tr>",
-        "<td>" + jobs.id + "</td>",
-        "<td>" + jobs.name + "</td>",
-        "</td>"
+        "<td>" + jobs.employee_id + "</td>",
+        "<td>" + jobs.location + "</td>",
+        "<td>" + jobs.job_desc + "</td>",
+        "<td>" + jobs.job_status + "</td>",
+        "</tr>"
       ].join("")
     );
     return $newInputRow;
