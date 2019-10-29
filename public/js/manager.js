@@ -96,6 +96,7 @@ $(document).ready(function() {
       [
         "<tr>",
         "<td>" + jobs.id + "</td>",
+        "<td>" + jobs.name + "</td>",
         "<td>" + jobs.location + "</td>",
         "<td>" + jobs.job_desc + "</td>",
         "<td>" + jobs.job_status + "</td>",
